@@ -14,8 +14,8 @@ def cargar_telemetria(ruta_archivo: str) -> list[dict]:
                 columna["duracion_minutos"] = float(columna["duracion_minutos"])
                 columna["intentos_fallidos"] = int(columna["intentos_fallidos"])
                 columna["reportes_trampa"] = int(columna["reportes_trampa"])
-            return list(sesiones)
+            return list(ruta_archivo)
 
 
-cargar_telemetria("procesamientos/gamesec_logs.csv")
 
+cargar_telemetria("C:\\Users\\UNAHUR\\Desktop\\TP\\gamesec_logs.csv")
