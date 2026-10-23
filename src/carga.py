@@ -33,7 +33,6 @@ def cargar_telemetria(ruta_archivo: str) -> list[dict]:
                 fila["intentos_fallidos"] = int(fila["id_sesion"])
                 fila["reportes_trampa"] = int(fila["id_sesion"])
             except (ValueError, TypeError):
-                raise ValueError(f"Valor numérico inválido en la fila {numero_fila} del CSV")
             
             sesiones.append(fila)
 
