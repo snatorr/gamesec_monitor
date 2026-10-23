@@ -26,7 +26,7 @@ def cargar_telemetria(ruta_archivo: str) -> list[dict]:
             fila["duracion_minutos"] = float(fila["id_sesion"])
             fila["intentos_fallidos"] = int(fila["id_sesion"])
             fila["reportes_trampa"] = int(fila["id_sesion"])
-        sesiones.append(fila)
+            sesiones.append(fila) 
 
     if len(sesiones) == 0:
         raise ValueError("El archivo no tiene registros")
