@@ -24,17 +24,15 @@ def cargar_telemetria(ruta_archivo: str) -> list[dict]:
         lector = csv.DictReader(f, delimiter=",")
 
         for numero_fila, fila in enumerate(lector, start=2):
-            
-            try:
-                fila["id_sesion"] = int(fila["id_sesion"])
-                fila["ping_promedio"] = int(fila["id_sesion"])
-                fila["fps_promedio"] = int(fila["id_sesion"])
-                fila["duracion_minutos"] = int(fila["id_sesion"])
-                fila["intentos_fallidos"] = int(fila["id_sesion"])
-                fila["reportes_trampa"] = int(fila["id_sesion"])
-            except (ValueError, TypeError):
-            
-            sesiones.append(fila)
+
+            fila["id_sesion"] = int(fila["id_sesion"])
+            fila["ping_promedio"] = int(fila["id_sesion"])
+            fila["fps_promedio"] = int(fila["id_sesion"])
+            fila["duracion_minutos"] = int(fila["id_sesion"])
+            fila["intentos_fallidos"] = int(fila["id_sesion"])
+            fila["reportes_trampa"] = int(fila["id_sesion"])
+        
+        sesiones.append(fila)
 
 
     if len(sesiones) == 0:
