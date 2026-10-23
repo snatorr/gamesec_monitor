@@ -23,7 +23,7 @@ def cargar_telemetria(ruta_archivo: str) -> list[dict]:
             fila["id_sesion"] = int(fila["id_sesion"])
             fila["ping_promedio"] = int(fila["id_sesion"])
             fila["fps_promedio"] = int(fila["id_sesion"])
-            fila["duracion_minutos"] = int(fila["id_sesion"])
+            fila["duracion_minutos"] = float(fila["id_sesion"])
             fila["intentos_fallidos"] = int(fila["id_sesion"])
             fila["reportes_trampa"] = int(fila["id_sesion"])
         sesiones.append(fila)
