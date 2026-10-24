@@ -19,7 +19,7 @@ def cargar_telemetria(ruta_archivo: str) -> list[dict]:
 
         lector = csv.DictReader(f, delimiter=",")
 
-        for numero_fila, fila in enumerate(lector, start=2):
+        for numero_fila, fila in enumerate(lector, start=2): #yo este lo tengo como "for fila in lector".
             fila["id_sesion"] = int(fila["id_sesion"])
             fila["ping_promedio"] = int(fila["ping_promedio"])
             fila["fps_promedio"] = int(fila["fps_promedio"])
