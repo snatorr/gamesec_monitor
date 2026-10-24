@@ -1,7 +1,4 @@
-
 from carga import cargar_telemetria
-
-
 
 sesiones= cargar_telemetria("gamesec_logs.csv")
 
@@ -13,8 +10,6 @@ def calcular_estadisticas_globales(sesiones: list[dict]) -> dict:
       "porcentaje_competitivas": [],
   }
   print(sesiones_registradas)
-
-
 
 
 def obtener_promedio(sesiones,columna):
