@@ -1,55 +1,52 @@
+from carga import cargar_telemetria
+
 
 def calcular_estadisticas_globales(sesiones: list[dict]) -> dict:
-    total_sesiones = len(sesiones)
-    contador_competitivas = 0.0
-    suma_ping = 0.0
+    total = len(sesiones)
+    suma_ping = 0
     suma_duracion = 0.0
+    suma_competitivas = 0
 
     for sesion in sesiones:
+        suma_ping += sesion["ping_promedio"]
+        suma_duracion += sesion["duracion_minutos"]
         if sesion["tipo_partida"] in ("Competitiva", "Torneo"):
-            contador_competitivas += 1
-        if sesion["ping_promedio"] is not None:
-            suma_ping += sesion["ping_promedio"]
-        if sesion["duracion_minutos"] is not None:
-            suma_duracion += sesion["duracion_minutos"]
-        if total_sesiones == 0:
-            return {
-                "total_sesiones": 0,
-                "ping_promedio": 0.0,
-                "duracion_promedio": 0.0,
-                "porcentaje_competitivas": 0.0
-            }
-     
+            suma_competitivas += 1
+
     return {
-        "total_sesiones": total_sesiones,
-        "porcentaje_competitivas": round(contador_competitivas / total_sesiones * 100, 2),
-        "ping_promedio": round(suma_ping / total_sesiones, 2),
-        "duracion_promedio": round(suma_duracion / total_sesiones, 2),
+        "total_sesiones" : total,
+        "ping_promedio" : round(suma_ping / total, 2),
+        "duracion_promedio" : round(suma_duracion / total, 2),
+        "porcentaje_competitivas" : round(suma_competitivas / total * 100, 2),
     }
+
 def analizar_por_servidor(sesiones: list[dict]) -> dict:
-    por_servidores = {}
-    ping_promedios = 0.0
-    fps_promedios = 0.0
-    resultado = {}
+
+    diccionario_acumulador = {}
 
     for sesion in sesiones:
         servidor = sesion["servidor"]
-        if servidor not in por_servidores:
-            por_servidores[servidor] = {
-                "cantidad": 0,
-                "ping_promedio": 0.0,
-                "fps_promedio": 0.0
-            }
-        if sesion["ping_promedio"] is not None:
-            por_servidores[servidor]["ping_promedio"] += sesion["ping_promedio"]
-        if sesion["fps_promedio"] is not None:
-            por_servidores[servidor]["fps_promedio"] += sesion["fps_promedio"]
-        por_servidores[servidor]["cantidad"] += 1
-    for servidor, datos in por_servidores.items():
-        cantidad = datos["cantidad"]
-        resultado[servidor] = {
-            "cantidad": cantidad,
-            "ping_promedio": round(datos["ping_promedio"] / cantidad, 2),
-            "fps_promedio": round(datos["fps_promedio"] / cantidad, 2) ,
+
+        if servidor not in diccionario_acumulador:
+            diccionario_acumulador[servidor] = {"cantidad" : 0, "suma_ping" : 0, "suma_fps" : 0}
+
+        diccionario_acumulador[servidor]["cantidad"] += 1
+        diccionario_acumulador[servidor]["suma_ping"] += sesion["ping_promedio"]
+        diccionario_acumulador[servidor]["suma_fps"] += sesion["fps_promedio"]
+
+    resultado = {}
+
+    for nombre, datos in diccionario_acumulador.items():
+        resultado[nombre] = {
+            "cantidad" : datos["cantidad"],
+            "ping_promedio" : round(datos["suma_ping"] / datos["cantidad"], 2),
+            "fps_promedio" : round(datos["suma_fps"] / datos["cantidad"], 2),
         }
+
     return resultado
+
+
+resultados = analizar_por_servidor(cargar_telemetria("src/gamesec_logs.csv"))
+
+
+print(resultados)
