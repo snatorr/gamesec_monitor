@@ -98,5 +98,3 @@ def clasificar_incidentes(sesiones: list[dict]) -> tuple[dict, list[dict]]:
 
   return clasificacion_de_incidentes
 
-
-    print(f"📁 ¡Reporte estructurado guardado correctamente en: {ruta_salida}!")
