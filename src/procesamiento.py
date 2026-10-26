@@ -35,7 +35,7 @@ def analizar_por_servidor(sesiones: list[dict]) -> dict:
 
     for sesion in sesiones:
         servidor_actual= sesion["servidor"]
-        datos_del_servidor= diccionario_acumulador.get(region_actual,{"cantidad": 0, 
+        datos_del_servidor= diccionario_acumulador.get(servidor_actual,{"cantidad": 0, 
                                                                "ping_promedio": 0, 
                                                                "fps_promedio": 0})
         datos_del_servidor["cantidad"]+=1
