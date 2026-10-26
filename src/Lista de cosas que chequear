@@ -1,0 +1,5 @@
+1. En procesamientos.py -> analizar por servidor faltan datos.
+2. En menu.py hay que cambiar las comillas. Las comillas que salen son las que tira la IA.[  ''  ]
+3. En menu.py hay que hacer una conclusion en el item 4. Pide que obligatoriamente sea de cada miembro
+
+Agrege algunas cosas que podrian cambiarse en en el menu, solo lo aplique en la primera parte para mostrar de ej 
