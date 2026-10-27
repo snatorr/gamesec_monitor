@@ -105,8 +105,8 @@ def exportar_reporte(sesiones: list[dict], ruta_salida: str = "reporte_gamesec.t
 
         f.write("\n[4] CONCLUSIONES TECNICAS DEL GRUPO\n")
         f.write("-" * 70 + "\n")
-        f.write("SA-BuenosAires registra la mayor proporción de incidentes críticos, aunque la diferencia con SA-SaoPaulo es pequeña.\n")
-        f.write("todo sigue estable no hay muchos incidentes espero que siga igual\n")
+        f.write("SA-BuenosAires registra la mayor cantidad de incidentes críticos, aunque la diferencia con SA-SaoPaulo es pequeña.\n")
+        f.write("Todo sigue estable no hay muchos incidentes espero que siga igual\n")
         f.write("NA-Virginia es el servidor con más tasa de ping registrada.\n")
 
         f.write("-" * 70 + "\n")
@@ -114,11 +114,21 @@ def exportar_reporte(sesiones: list[dict], ruta_salida: str = "reporte_gamesec.t
         f.write("-" * 70 + "\n")
     print(f"\nReporte exportado con éxito en: {ruta_salida}\n")
 
+
+""" En el main usamos try, except: En caso de que el codigo pueda devolver un error, se intenta ejecutar lo que anida el try
+y si se detecta un error se ejectura el except"""
+
+
 def main():
     sesiones = []
     while True:
         mostrar_menu()
-        opcion = int(input("Seleccione una opción: ").strip())
+        try:
+            opcion = int(input("Seleccione una opción: ").strip())
+
+        except ValueError:
+             print("Entrada no válida. Ingrese un número del 1 al 6.")
+             continue
 
         if opcion == 1:
             try:
