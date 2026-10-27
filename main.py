@@ -112,7 +112,7 @@ def exportar_reporte(sesiones: list[dict], ruta_salida: str = "reporte_gamesec.t
         f.write("-" * 70 + "\n")
         f.write("                  Fin del reporte GAMESEC MONITOR\n")
         f.write("-" * 70 + "\n")
-    print(f"Reporte exportado con éxito en: {ruta_salida}")
+    print(f"\nReporte exportado con éxito en: {ruta_salida}\n")
 
 def main():
     sesiones = []
