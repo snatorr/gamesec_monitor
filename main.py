@@ -85,7 +85,7 @@ def exportar_reporte(sesiones: list[dict], ruta_salida: str = "reporte_gamesec.t
         f.write(f"Duración media de partida: {estadisticas["duracion_promedio"]} min\n")
         f.write(f"Partidas de alta competencia (RANKED/TORNEO): {estadisticas["porcentaje_competitivas"]}%\n\n")
 
-        f.write("[2] RENNDIMIENTO REGIONAL POR SERVIDOR\n")
+        f.write("[2] RENDIMIENTO REGIONAL POR SERVIDOR\n")
         f.write("-" * 70 + "\n")
         f.write("Servidor | Sesiones | Ping Promedio | FPS Promedio\n")
         for nombre, ficha in analizar.items():
