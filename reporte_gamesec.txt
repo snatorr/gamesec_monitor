@@ -10,7 +10,7 @@ Ping promedio global: 148.44 ms
 Duración media de partida: 29.39 min
 Partidas de alta competencia (RANKED/TORNEO): 53.33%
 
-[2] RENNDIMIENTO REGIONAL POR SERVIDOR
+[2] RENDIMIENTO REGIONAL POR SERVIDOR
 ----------------------------------------------------------------------
 Servidor | Sesiones | Ping Promedio | FPS Promedio
 SA-BuenosAires | 39 | 78.9 ms | 90.8 fps
