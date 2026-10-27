@@ -107,7 +107,7 @@ def exportar_reporte(sesiones: list[dict], ruta_salida: str = "reporte_gamesec.t
         f.write("-" * 70 + "\n")
         f.write("SA-BuenosAires registra la mayor proporción de incidentes críticos, aunque la diferencia con SA-SaoPaulo es pequeña.\n")
         f.write("todo sigue estable no hay muchos incidentes espero que siga igual\n")
-        f.write("DYLAN, BREN, ESCRIBIR CONCLUSIONES ACÁ\n")
+        f.write("NA-Virginia es el servidor con más tasa de ping registrada.\n")
 
         f.write("-" * 70 + "\n")
         f.write("                  Fin del reporte GAMESEC MONITOR\n")
