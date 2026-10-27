@@ -106,7 +106,7 @@ def exportar_reporte(sesiones: list[dict], ruta_salida: str = "reporte_gamesec.t
         f.write("\n[4] CONCLUSIONES TECNICAS DEL GRUPO\n")
         f.write("-" * 70 + "\n")
         f.write("SA-BuenosAires registra la mayor proporción de incidentes críticos, aunque la diferencia con SA-SaoPaulo es pequeña.\n")
-        f.write("DYLAN, BREN, ESCRIBIR CONCLUSIONES ACÁ\n")
+        f.write("todo sigue estable no hay muchos incidentes espero que siga igual\n")
         f.write("DYLAN, BREN, ESCRIBIR CONCLUSIONES ACÁ\n")
 
         f.write("-" * 70 + "\n")
